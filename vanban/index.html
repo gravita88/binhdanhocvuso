@@ -1,1 +1,258 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Văn bản – tài liệu | Chuyển đổi số 24h</title><style>*{box-sizing:border-box}body{margin:0;font:16px/1.7 system-ui,Arial,sans-serif;background:#f5f6fa;color:#192b46}header{background:#a31d39;padding:18px 24px;color:white}header a{color:white;text-decoration:none}main{max-width:920px;margin:50px auto;background:white;padding:40px;border:1px solid #e5e8ef;border-radius:16px}h1{margin-top:0}.link{color:#a31d39;text-decoration:none;font-weight:600}@media(max-width:600px){main{margin:20px 12px;padding:25px}}</style></head><body><header><a href="/">★ CHUYỂN ĐỔI SỐ 24H</a></header><main><p><a class="link" href="/">← Trang chủ</a></p><h1>Văn bản – tài liệu</h1><p>Danh mục tài liệu và liên kết sẽ được cập nhật sau khi rà soát quyền công bố.</p><p>Trang này đã được tạo và sẵn sàng cập nhật nội dung.</p><p><a class="link" href="/binhdanhocvuso/">Xem Dashboard Bình dân học vụ số →</a></p></main></body></html>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thư viện văn bản | Chuyển đổi số 24h</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#16243b}
+header{background:white;border-bottom:1px solid #e0e7ef}
+.wrap{max-width:1150px;margin:auto;padding:0 20px}
+nav{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.brand{font-size:22px;font-weight:bold;color:#1355bc;text-decoration:none}
+.brand span{color:#e32938}
+nav a:last-child{color:#425671;text-decoration:none}
+.hero{padding:48px 0;background:linear-gradient(120deg,#103a89,#1677c8);color:white}
+.hero h1{font-size:36px;margin:0 0 12px}
+.hero p{line-height:1.7;margin:0}
+.filters{display:flex;gap:12px;margin:26px 0;flex-wrap:wrap}
+input,select{padding:13px;border:1px solid #d1dce9;border-radius:10px;font:inherit;background:white}
+input{flex:2;min-width:230px}
+select{flex:1;min-width:190px}
+#status{margin-bottom:20px;color:#536981}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-bottom:45px}
+.card{background:white;border:1px solid #e1e7ef;border-radius:14px;overflow:hidden;box-shadow:0 5px 18px #152c4610}
+.card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.card-body{padding:20px}
+.category{font-size:12px;font-weight:bold;color:#1260b3;text-transform:uppercase}
+.card h2{font-size:19px;line-height:1.4}
+.card p{color:#53647a;line-height:1.7;font-size:14px}
+.date{font-size:13px;color:#70829a}
+button{background:#115cbe;border:0;border-radius:8px;padding:11px 15px;color:white;font-weight:bold;cursor:pointer}
+#detail{display:none;background:white;border-radius:14px;padding:30px;margin:30px 0 50px}
+#detail h1{line-height:1.4}
+#detail .body{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.85;margin:25px 0}
+#detail img{display:block;max-width:100%;height:auto;max-height:650px;margin:20px auto;border-radius:10px}
+#detail figcaption{text-align:center;color:#65768c;font-size:13px}
+#detail figure{margin:25px 0}
+#detail a.attachment{display:inline-block;background:#eaf3ff;color:#145aaa;text-decoration:none;padding:12px;border-radius:8px}
+footer{text-align:center;padding:30px;color:#728097}
+@media(max-width:600px){.hero h1{font-size:28px}#detail{padding:20px}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="/">CHUYỂN ĐỔI SỐ <span>24H</span></a>
+    <a href="/">← Trang chủ</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>THƯ VIỆN VĂN BẢN</h1>
+    <p>Văn bản chỉ đạo, tài liệu nghiệp vụ, hướng dẫn và các bài viết về chuyển đổi số.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <section id="listing">
+    <div class="filters">
+      <input id="search" placeholder="Tìm kiếm bài viết..." aria-label="Tìm kiếm">
+      <select id="category" aria-label="Chuyên mục">
+        <option value="">Tất cả chuyên mục</option>
+      </select>
+    </div>
+    <p id="status">Đang tải dữ liệu...</p>
+    <div id="grid" class="grid"></div>
+  </section>
+  <article id="detail"></article>
+</main>
+
+<footer>© Chuyển đổi số 24h - Thư viện văn bản</footer>
+
+<script>
+const API_URL =
+'https://script.google.com/macros/s/AKfycbxWNpE4lcfcitP6N3zok6C3Ef2-d3dmwL9DVNz2j15JGUDwM0ersdUHOcUO-W9r_4_e/exec';
+
+let articles = [];
+const $ = id => document.getElementById(id);
+
+function safeUrl(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' ? url.href : '';
+  } catch {
+    return '';
+  }
+}
+
+function addText(parent, tag, value, className = '') {
+  const element = document.createElement(tag);
+  element.className = className;
+  element.textContent = String(value || '');
+  parent.appendChild(element);
+  return element;
+}
+
+function addImage(parent, value) {
+  const url = safeUrl(value);
+  if (!url) return;
+  const image = document.createElement('img');
+  image.src = url;
+  image.alt = 'Ảnh minh họa chuyển đổi số';
+  image.loading = 'lazy';
+  image.onerror = () => image.remove();
+  parent.appendChild(image);
+}
+
+function render() {
+  const keyword = $('search').value.toLowerCase().trim();
+  const category = $('category').value;
+  const grid = $('grid');
+  grid.replaceChildren();
+
+  const filtered = articles.filter(article => {
+    const matchCategory =
+      !category || article.chuyenMuc === category;
+    const searchable = [
+      article.tieuDe,
+      article.tomTat,
+      article.noiDung
+    ].join(' ').toLowerCase();
+    return matchCategory && searchable.includes(keyword);
+  });
+
+  $('status').textContent =
+    `Có ${filtered.length} bài viết`;
+
+  if (!filtered.length) {
+    $('status').textContent =
+      'Không có bài viết phù hợp.';
+  }
+
+  filtered.forEach(article => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    addImage(card, article.anhDaiDien);
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+
+    addText(body, 'div', article.chuyenMuc, 'category');
+    addText(body, 'h2', article.tieuDe);
+    addText(body, 'p', article.tomTat);
+    addText(body, 'div', article.ngayDang, 'date');
+
+    const button = document.createElement('button');
+    button.textContent = 'Đọc chi tiết →';
+    button.onclick = () => showDetail(article);
+    body.appendChild(button);
+
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+function showDetail(article) {
+  const detail = $('detail');
+  detail.replaceChildren();
+
+  const back = document.createElement('button');
+  back.textContent = '← Quay lại danh sách';
+  back.onclick = () => {
+    detail.style.display = 'none';
+    $('listing').style.display = 'block';
+    window.scrollTo(0, 0);
+  };
+  detail.appendChild(back);
+
+  addText(detail, 'p', article.chuyenMuc, 'category');
+  addText(detail, 'h1', article.tieuDe);
+  addText(detail, 'p', article.ngayDang, 'date');
+  addImage(detail, article.anhDaiDien);
+  addText(detail, 'div', article.noiDung, 'body');
+
+  const photos = Array.isArray(article.anhNoiDung)
+    ? article.anhNoiDung : [];
+  const captions = String(
+    article.chuThichAnh || ''
+  ).split(/\r?\n/);
+
+  photos.forEach((url, index) => {
+    const figure = document.createElement('figure');
+    addImage(figure, url);
+    if (!figure.querySelector('img')) return;
+
+    if (captions[index]) {
+      addText(
+        figure,
+        'figcaption',
+        captions[index]
+      );
+    }
+    detail.appendChild(figure);
+  });
+
+  const link = safeUrl(article.linkTep);
+  if (link) {
+    const file = document.createElement('a');
+    file.className = 'attachment';
+    file.href = link;
+    file.target = '_blank';
+    file.rel = 'noopener noreferrer';
+    file.textContent = 'Xem tài liệu đính kèm ↗';
+    detail.appendChild(file);
+  }
+
+  $('listing').style.display = 'none';
+  detail.style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+async function loadArticles() {
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (!data.success || !Array.isArray(data.articles)) {
+      throw new Error(data.error || 'Dữ liệu không hợp lệ');
+    }
+
+    articles = data.articles;
+
+    const categories = [
+      ...new Set(
+        articles.map(a => a.chuyenMuc).filter(Boolean)
+      )
+    ];
+
+    categories.forEach(name => {
+      const option = document.createElement('option');
+      option.value = name;
+      option.textContent = name;
+      $('category').appendChild(option);
+    });
+
+    render();
+  } catch (error) {
+    console.error(error);
+    $('status').textContent =
+      'Không tải được dữ liệu. Vui lòng kiểm tra kết nối API.';
+  }
+}
+
+$('search').addEventListener('input', render);
+$('category').addEventListener('change', render);
+loadArticles();
+</script>
+
+</body>
+</html>
