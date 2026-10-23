@@ -1,258 +1,50 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thư viện văn bản | Chuyển đổi số 24h</title>
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Thư viện văn bản, tài liệu và bài viết chuyển đổi số - Chuyển đổi số 24h">
+<title>Thư viện văn bản và bài viết | Chuyển đổi số 24h</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#16243b}
-header{background:white;border-bottom:1px solid #e0e7ef}
-.wrap{max-width:1150px;margin:auto;padding:0 20px}
-nav{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-.brand{font-size:22px;font-weight:bold;color:#1355bc;text-decoration:none}
-.brand span{color:#e32938}
-nav a:last-child{color:#425671;text-decoration:none}
-.hero{padding:48px 0;background:linear-gradient(120deg,#103a89,#1677c8);color:white}
-.hero h1{font-size:36px;margin:0 0 12px}
-.hero p{line-height:1.7;margin:0}
-.filters{display:flex;gap:12px;margin:26px 0;flex-wrap:wrap}
-input,select{padding:13px;border:1px solid #d1dce9;border-radius:10px;font:inherit;background:white}
-input{flex:2;min-width:230px}
-select{flex:1;min-width:190px}
-#status{margin-bottom:20px;color:#536981}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-bottom:45px}
-.card{background:white;border:1px solid #e1e7ef;border-radius:14px;overflow:hidden;box-shadow:0 5px 18px #152c4610}
-.card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-.card-body{padding:20px}
-.category{font-size:12px;font-weight:bold;color:#1260b3;text-transform:uppercase}
-.card h2{font-size:19px;line-height:1.4}
-.card p{color:#53647a;line-height:1.7;font-size:14px}
-.date{font-size:13px;color:#70829a}
-button{background:#115cbe;border:0;border-radius:8px;padding:11px 15px;color:white;font-weight:bold;cursor:pointer}
-#detail{display:none;background:white;border-radius:14px;padding:30px;margin:30px 0 50px}
-#detail h1{line-height:1.4}
-#detail .body{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.85;margin:25px 0}
-#detail img{display:block;max-width:100%;height:auto;max-height:650px;margin:20px auto;border-radius:10px}
-#detail figcaption{text-align:center;color:#65768c;font-size:13px}
-#detail figure{margin:25px 0}
-#detail a.attachment{display:inline-block;background:#eaf3ff;color:#145aaa;text-decoration:none;padding:12px;border-radius:8px}
-footer{text-align:center;padding:30px;color:#728097}
-@media(max-width:600px){.hero h1{font-size:28px}#detail{padding:20px}}
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Roboto+Slab:wght@500;600;700&display=swap');
+:root{--blue:#07529b;--navy:#14283d;--red:#d71938;--green:#0b7a61;--line:#e7ebef;--muted:#64748b;--bg:#fff;--soft:#f5f7f9;--font:'Be Vietnam Pro',Arial,sans-serif;--serif:'Roboto Slab',Georgia,serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--navy);font:14px/1.65 var(--font)}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.container{max-width:1190px;margin:auto;padding:0 22px}.topline{height:4px;background:linear-gradient(90deg,var(--red) 0 25%,var(--blue) 25% 100%)}.utility{border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}.utility .container{min-height:36px;display:flex;justify-content:space-between;align-items:center;gap:12px}.utility a:hover{color:var(--blue)}.masthead{min-height:104px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{display:inline-flex;align-items:center;gap:12px}.logo-mark{width:55px;height:55px;background:var(--red);border-radius:12px;color:white;display:grid;place-items:center;position:relative;box-shadow:0 6px 18px #d719382c;font-weight:800;font-size:22px}.logo-mark small{font-size:11px;position:absolute;right:5px;bottom:3px}.logo-copy strong{font-size:26px;line-height:1.22;color:var(--blue);display:block;font-weight:800;letter-spacing:-1px}.logo-copy span{font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}.masthead-aside{text-align:right;font-size:12px;color:var(--muted)}.masthead-aside strong{display:block;color:var(--navy);font-size:15px}.nav{border-top:1px solid var(--line);border-bottom:2px solid var(--blue);background:#fff}.nav-inner{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none}.nav-inner::-webkit-scrollbar{display:none}.nav a,.nav button{padding:13px 17px;display:block;white-space:nowrap;font-weight:700;font-size:13px;border:0;background:none;color:#27394b}.nav a.active{color:var(--blue);box-shadow:inset 0 -3px 0 var(--red)}.nav a:hover,.nav button:hover{color:var(--red)}.breadcrumb{font-size:12px;color:var(--muted);padding:22px 0 14px}.breadcrumb a:hover{color:var(--blue)}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:13px;border-bottom:2px solid var(--navy);margin-bottom:22px}.section-heading h1{font-size:27px;line-height:1.25;margin:0;color:#172638;font-weight:800;letter-spacing:-.7px}.section-heading h2{font-size:21px;line-height:1.3;margin:0;font-weight:800}.section-heading .bar{width:6px;height:27px;background:var(--red);display:inline-block;margin-right:11px;vertical-align:-5px;border-radius:2px}.eyebrow{font-size:11px;text-transform:uppercase;color:var(--blue);font-weight:800;letter-spacing:.7px}.subnav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.subnav button{padding:7px 11px;border:0;background:transparent;color:#53657a;font-size:12px;font-weight:700;border-radius:6px}.subnav button:hover,.subnav button.active{background:#e9f2fa;color:var(--blue)}.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 0 22px}.search{position:relative;max-width:360px;width:100%}.search svg{position:absolute;left:14px;top:11px;color:#8492a4}.search input{width:100%;padding:11px 12px 11px 42px;border:1px solid #e1e7ed;border-radius:5px;outline:none;background:#fbfcfd}.search input:focus{border-color:#7faee0}.count{font-size:12px;color:var(--muted)}.lead-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:25px;margin-bottom:32px}.feature{min-width:0}.cover{background:#e7eff6;overflow:hidden;position:relative}.cover img{width:100%;height:100%;object-fit:cover}.feature .cover{aspect-ratio:1.72}.feature-title{font:700 27px/1.4 var(--serif);letter-spacing:-.5px;margin:11px 0 8px}.feature-title a:hover,.story-title a:hover,.mini-title a:hover,.list-title a:hover{color:var(--blue)}.summary{color:#5c6a7a;font-size:13px;margin:7px 0 0;line-height:1.75}.date{font-size:11px;color:#8793a1}.side-feature{display:flex;flex-direction:column;gap:18px}.side-story{display:grid;grid-template-columns:128px minmax(0,1fr);gap:14px;border-bottom:1px solid var(--line);padding-bottom:17px}.side-story:last-child{border-bottom:0}.side-story .cover{aspect-ratio:1.28}.story-title{font:700 16px/1.48 var(--serif);margin:4px 0 8px}.side-story .date{display:block}.horizontal-rule{height:1px;background:var(--line);margin:25px 0}.content-grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:38px;margin-bottom:60px}.feed-label{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #17283d;margin:0 0 16px;padding:0 0 12px}.feed-label h2,.sidebar-title{font-size:18px;margin:0;font-weight:800}.feed-label span{color:var(--muted);font-size:12px}.list-item{display:grid;grid-template-columns:226px minmax(0,1fr);gap:20px;padding:21px 0;border-bottom:1px solid var(--line)}.list-item:first-child{padding-top:0}.list-item .cover{aspect-ratio:1.55}.list-title{font:700 19px/1.48 var(--serif);margin:5px 0 7px}.list-item .summary{margin:5px 0 8px}.sidebar{border-left:1px solid var(--line);padding-left:26px}.sidebar-box{background:#f7f9fb;padding:20px;margin-bottom:22px;border-top:3px solid var(--blue)}.sidebar-title{margin-bottom:14px}.sidebar-list{list-style:none;padding:0;margin:0}.sidebar-list li{padding:12px 0;border-bottom:1px solid #e4e9ef;display:flex;gap:11px}.sidebar-list li:last-child{border:0}.sidebar-list b{color:var(--red);font-size:19px}.sidebar-list button{border:0;padding:0;text-align:left;background:none;font-size:13px;font-weight:700;line-height:1.6;color:var(--navy)}.sidebar-list button:hover{color:var(--blue)}.tag-cloud{display:flex;flex-wrap:wrap;gap:8px}.tag-cloud button{background:white;border:1px solid #dfe6ed;border-radius:4px;padding:7px 9px;font-size:12px;color:#45576b}.tag-cloud button:hover{border-color:var(--blue);color:var(--blue)}.loading,.empty,.error{padding:38px 20px;text-align:center;background:#f7f9fb;color:#5b6a7b;border:1px dashed #d9e3ed;border-radius:5px}.error{color:#9b2735}.hidden{display:none!important}.article-wrap{max-width:850px;margin:0 auto 65px}.back{border:0;background:transparent;color:var(--blue);font-weight:700;padding:18px 0}.article-category{font-size:12px;color:var(--blue);font-weight:800;text-transform:uppercase}.article-title{font:700 34px/1.42 var(--serif);letter-spacing:-.5px;margin:13px 0}.article-intro{font-size:17px;font-weight:600;line-height:1.8;color:#46566b;margin:20px 0}.article-image{width:100%;height:auto;max-height:600px;object-fit:contain;background:#f5f7fa}.article-text{font-size:16px;line-height:2.05;white-space:pre-wrap;overflow-wrap:anywhere;margin:28px 0 36px}.article-body figure{margin:30px 0}.article-body figcaption{font-size:12px;color:#6e7f92;text-align:center;padding:10px 0}.attachment{display:inline-block;border:1px solid #b8d4f1;background:#edf5ff;border-radius:5px;padding:11px 16px;color:var(--blue);font-weight:700}.footer{background:#f6f8fb;border-top:1px solid #e1e7ed;padding:38px 0;color:#536273}.footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer strong{color:var(--blue);font-size:16px}.footer p{font-size:12px;margin:5px 0}.no-image{width:100%;height:100%;min-height:105px;background:linear-gradient(135deg,#e9f3fa,#dceaf4);display:flex;align-items:center;justify-content:center;color:#668caf;font-weight:800;font-size:12px;letter-spacing:1px}.no-image:before{content:'CHUYỂN ĐỔI SỐ';}.pagination{display:flex;justify-content:center;gap:8px;margin:25px 0}.pagination button{border:1px solid #dee7f0;background:white;border-radius:4px;min-width:37px;height:37px}.pagination button.active{background:var(--blue);color:white;border-color:var(--blue)}.pagination button:disabled{opacity:.4;cursor:not-allowed}@media(max-width:880px){.content-grid{grid-template-columns:1fr}.sidebar{border-left:0;border-top:1px solid var(--line);padding:25px 0 0}.lead-grid{grid-template-columns:1fr}.side-feature{display:grid;grid-template-columns:repeat(2,1fr)}.side-story{grid-template-columns:115px 1fr}.masthead-aside{display:none}}@media(max-width:620px){.container{padding:0 15px}.masthead{min-height:80px}.logo-mark{width:46px;height:46px}.logo-copy strong{font-size:20px}.logo-copy span{font-size:9px}.section-heading{align-items:flex-start;flex-direction:column;gap:8px}.section-heading h1{font-size:23px}.subnav{justify-content:flex-start}.lead-grid{gap:19px}.feature-title{font-size:23px}.side-feature{display:block}.side-story{grid-template-columns:120px 1fr;margin-bottom:15px}.list-item{grid-template-columns:128px 1fr;gap:12px;padding:15px 0}.list-title{font-size:15px}.list-item .summary{display:none}.list-item .cover{aspect-ratio:1.2}.article-title{font-size:26px}.article-text{font-size:15px}.tools{flex-wrap:wrap}.search{max-width:none}.utility .container{font-size:10px}.footer .container{display:block}}
 </style>
 </head>
 <body>
-
-<header>
-  <nav class="wrap">
-    <a class="brand" href="/">CHUYỂN ĐỔI SỐ <span>24H</span></a>
-    <a href="/">← Trang chủ</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <h1>THƯ VIỆN VĂN BẢN</h1>
-    <p>Văn bản chỉ đạo, tài liệu nghiệp vụ, hướng dẫn và các bài viết về chuyển đổi số.</p>
-  </div>
-</section>
-
-<main class="wrap">
-  <section id="listing">
-    <div class="filters">
-      <input id="search" placeholder="Tìm kiếm bài viết..." aria-label="Tìm kiếm">
-      <select id="category" aria-label="Chuyên mục">
-        <option value="">Tất cả chuyên mục</option>
-      </select>
-    </div>
-    <p id="status">Đang tải dữ liệu...</p>
-    <div id="grid" class="grid"></div>
-  </section>
-  <article id="detail"></article>
+<div class="topline"></div>
+<div class="utility"><div class="container"><span>CỔNG THÔNG TIN CHUYỂN ĐỔI SỐ</span><span id="today"></span></div></div>
+<header class="container masthead"><a href="/" class="logo" aria-label="Chuyển đổi số 24h - Trang chủ"><span class="logo-mark">24<small>H</small></span><span class="logo-copy"><strong>CHUYỂN ĐỔI SỐ</strong><span>Thông tin • Hướng dẫn • Công nghệ</span></span></a><div class="masthead-aside"><strong>THƯ VIỆN VĂN BẢN & BÀI VIẾT</strong>Cập nhật nội dung trực tiếp từ hệ thống quản trị</div></header>
+<nav class="nav"><div class="container nav-inner"><a href="/">⌂ Trang chủ</a><a class="active" href="/vanban/">Văn bản - Bài viết</a><a href="/huongdan/">Hướng dẫn</a><a href="/theodoi/">Theo dõi</a><a href="/baocao/">Báo cáo</a><a href="/binhdanhocvuso/">Bình dân học vụ số</a></div></nav>
+<main class="container">
+<section id="listing"><div class="breadcrumb"><a href="/">Trang chủ</a> / Văn bản - Bài viết</div><div class="section-heading"><h1><span class="bar"></span>Văn bản & Bài viết</h1><div id="subnav" class="subnav"></div></div><div class="tools"><div class="search"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="q" type="search" placeholder="Tìm kiếm bài viết, văn bản..." aria-label="Tìm kiếm bài viết"></div><span class="count" id="count">Đang kết nối dữ liệu...</span></div><div id="loading" class="loading">Đang tải các bài viết Công khai từ Google Sheets...</div><div id="error" class="error hidden" role="alert"></div><div id="results" class="hidden"><div class="lead-grid" id="lead"></div><div class="horizontal-rule"></div><div class="content-grid"><section><div class="feed-label"><h2>Bài viết mới nhất</h2><span id="feedMeta"></span></div><div id="feed"></div><div class="pagination" id="pages"></div></section><aside class="sidebar"><div class="sidebar-box"><h2 class="sidebar-title">Đọc nhiều / Nổi bật</h2><ol class="sidebar-list" id="topList"></ol></div><div class="sidebar-box"><h2 class="sidebar-title">Chuyên mục</h2><div class="tag-cloud" id="tags"></div></div></aside></div></div></section>
+<section id="article" class="hidden article-wrap" aria-live="polite"></section>
 </main>
-
-<footer>© Chuyển đổi số 24h - Thư viện văn bản</footer>
-
+<footer class="footer"><div class="container"><div><strong>CHUYỂN ĐỔI SỐ 24H</strong><p>Thông tin, tài liệu và hướng dẫn ứng dụng chuyển đổi số.</p></div><div><p>Trang Thư viện văn bản và bài viết</p><p><a href="/">Về trang chủ</a> · <a href="/binhdanhocvuso/">Bình dân học vụ số</a></p></div></div></footer>
 <script>
-const API_URL =
-'https://script.google.com/macros/s/AKfycbxWNpE4lcfcitP6N3zok6C3Ef2-d3dmwL9DVNz2j15JGUDwM0ersdUHOcUO-W9r_4_e/exec';
-
-let articles = [];
-const $ = id => document.getElementById(id);
-
-function safeUrl(value) {
-  try {
-    const url = new URL(String(value || ''));
-    return url.protocol === 'https:' ? url.href : '';
-  } catch {
-    return '';
-  }
-}
-
-function addText(parent, tag, value, className = '') {
-  const element = document.createElement(tag);
-  element.className = className;
-  element.textContent = String(value || '');
-  parent.appendChild(element);
-  return element;
-}
-
-function addImage(parent, value) {
-  const url = safeUrl(value);
-  if (!url) return;
-  const image = document.createElement('img');
-  image.src = url;
-  image.alt = 'Ảnh minh họa chuyển đổi số';
-  image.loading = 'lazy';
-  image.onerror = () => image.remove();
-  parent.appendChild(image);
-}
-
-function render() {
-  const keyword = $('search').value.toLowerCase().trim();
-  const category = $('category').value;
-  const grid = $('grid');
-  grid.replaceChildren();
-
-  const filtered = articles.filter(article => {
-    const matchCategory =
-      !category || article.chuyenMuc === category;
-    const searchable = [
-      article.tieuDe,
-      article.tomTat,
-      article.noiDung
-    ].join(' ').toLowerCase();
-    return matchCategory && searchable.includes(keyword);
-  });
-
-  $('status').textContent =
-    `Có ${filtered.length} bài viết`;
-
-  if (!filtered.length) {
-    $('status').textContent =
-      'Không có bài viết phù hợp.';
-  }
-
-  filtered.forEach(article => {
-    const card = document.createElement('div');
-    card.className = 'card';
-
-    addImage(card, article.anhDaiDien);
-
-    const body = document.createElement('div');
-    body.className = 'card-body';
-
-    addText(body, 'div', article.chuyenMuc, 'category');
-    addText(body, 'h2', article.tieuDe);
-    addText(body, 'p', article.tomTat);
-    addText(body, 'div', article.ngayDang, 'date');
-
-    const button = document.createElement('button');
-    button.textContent = 'Đọc chi tiết →';
-    button.onclick = () => showDetail(article);
-    body.appendChild(button);
-
-    card.appendChild(body);
-    grid.appendChild(card);
-  });
-}
-
-function showDetail(article) {
-  const detail = $('detail');
-  detail.replaceChildren();
-
-  const back = document.createElement('button');
-  back.textContent = '← Quay lại danh sách';
-  back.onclick = () => {
-    detail.style.display = 'none';
-    $('listing').style.display = 'block';
-    window.scrollTo(0, 0);
-  };
-  detail.appendChild(back);
-
-  addText(detail, 'p', article.chuyenMuc, 'category');
-  addText(detail, 'h1', article.tieuDe);
-  addText(detail, 'p', article.ngayDang, 'date');
-  addImage(detail, article.anhDaiDien);
-  addText(detail, 'div', article.noiDung, 'body');
-
-  const photos = Array.isArray(article.anhNoiDung)
-    ? article.anhNoiDung : [];
-  const captions = String(
-    article.chuThichAnh || ''
-  ).split(/\r?\n/);
-
-  photos.forEach((url, index) => {
-    const figure = document.createElement('figure');
-    addImage(figure, url);
-    if (!figure.querySelector('img')) return;
-
-    if (captions[index]) {
-      addText(
-        figure,
-        'figcaption',
-        captions[index]
-      );
-    }
-    detail.appendChild(figure);
-  });
-
-  const link = safeUrl(article.linkTep);
-  if (link) {
-    const file = document.createElement('a');
-    file.className = 'attachment';
-    file.href = link;
-    file.target = '_blank';
-    file.rel = 'noopener noreferrer';
-    file.textContent = 'Xem tài liệu đính kèm ↗';
-    detail.appendChild(file);
-  }
-
-  $('listing').style.display = 'none';
-  detail.style.display = 'block';
-  window.scrollTo(0, 0);
-}
-
-async function loadArticles() {
-  try {
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const data = await response.json();
-    if (!data.success || !Array.isArray(data.articles)) {
-      throw new Error(data.error || 'Dữ liệu không hợp lệ');
-    }
-
-    articles = data.articles;
-
-    const categories = [
-      ...new Set(
-        articles.map(a => a.chuyenMuc).filter(Boolean)
-      )
-    ];
-
-    categories.forEach(name => {
-      const option = document.createElement('option');
-      option.value = name;
-      option.textContent = name;
-      $('category').appendChild(option);
-    });
-
-    render();
-  } catch (error) {
-    console.error(error);
-    $('status').textContent =
-      'Không tải được dữ liệu. Vui lòng kiểm tra kết nối API.';
-  }
-}
-
-$('search').addEventListener('input', render);
-$('category').addEventListener('change', render);
-loadArticles();
+'use strict';
+const API='https://script.google.com/macros/s/AKfycbxWNpE4lcfcitP6N3zok6C3Ef2-d3dmwL9DVNz2j15JGUDwM0ersdUHOcUO-W9r_4_e/exec';
+const $=id=>document.getElementById(id);
+let all=[],filter='',page=1;
+const PER_PAGE=7;
+$('today').textContent=new Intl.DateTimeFormat('vi-VN',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date());
+function el(tag,cls,text){const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=String(text);return x}
+function safeLink(raw){try{const u=new URL(String(raw||''),location.href);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}}
+function photo(url){const frame=el('div','cover');const src=safeLink(url);if(!src){frame.append(el('div','no-image'));return frame}const img=el('img');img.src=src;img.loading='lazy';img.alt='Ảnh minh họa bài viết';img.onerror=()=>{frame.replaceChildren(el('div','no-image'))};frame.append(img);return frame}
+function clickTitle(parent,title,item,cls){const h=el('h2',cls);const a=el('a','',title||'Bài viết chưa có tiêu đề');a.href='#bai-viet-'+encodeURIComponent(item.id);a.onclick=e=>{e.preventDefault();openArticle(item)};h.append(a);parent.append(h)}
+function label(parent,item){parent.append(el('span','eyebrow',item.chuyenMuc||'Bài viết'))}
+function date(parent,item){parent.append(el('span','date',item.ngayDang||''))}
+function getFiltered(){let q=$('q').value.toLocaleLowerCase('vi').trim();return all.filter(a=>(!filter||a.chuyenMuc===filter)&&(!q||[a.tieuDe,a.tomTat,a.noiDung,a.chuyenMuc].join(' ').toLocaleLowerCase('vi').includes(q)))}
+function chooseCategory(cat){filter=cat;page=1;render();window.scrollTo({top:0,behavior:'smooth'})}
+function renderCategories(){const cats=[...new Set(all.map(a=>a.chuyenMuc).filter(Boolean))];const nav=$('subnav'),tags=$('tags');nav.replaceChildren();tags.replaceChildren();const options=['Tất cả',...cats];options.forEach((cat,i)=>{const b=el('button',(!i&&!filter)||filter===cat?'active':'',cat);b.type='button';b.onclick=()=>chooseCategory(i===0?'':cat);nav.append(b)});cats.forEach(cat=>{const b=el('button','',cat);b.type='button';b.onclick=()=>chooseCategory(cat);tags.append(b)})}
+function story(item,kind){const node=el('div',kind==='feature'?'feature':kind==='side'?'side-story':'list-item');const p=photo(item.anhDaiDien);const link=el('a');link.href='#bai-viet-'+encodeURIComponent(item.id);link.onclick=e=>{e.preventDefault();openArticle(item)};link.append(p);node.append(link);const desc=el('div',kind==='side'?'side-text':'');label(desc,item);clickTitle(desc,item.tieuDe,item,kind==='feature'?'feature-title':kind==='side'?'story-title':'list-title');if(kind!=='side')desc.append(el('p','summary',item.tomTat||''));date(desc,item);node.append(desc);return node}
+function render(){const items=getFiltered();$('count').textContent=`${items.length} bài viết`;renderCategories();const lead=$('lead'),feed=$('feed'),tops=$('topList'),pages=$('pages');[lead,feed,tops,pages].forEach(x=>x.replaceChildren());$('results').classList.remove('hidden');if(!items.length){lead.append(el('div','empty','Chưa có bài viết phù hợp với tìm kiếm hoặc chuyên mục này.'));return}lead.append(story(items[0],'feature'));const side=el('div','side-feature');items.slice(1,4).forEach(a=>side.append(story(a,'side')));lead.append(side);const remaining=items.slice(4),max=Math.max(1,Math.ceil(remaining.length/PER_PAGE));page=Math.min(page,max);const current=remaining.slice((page-1)*PER_PAGE,page*PER_PAGE);$('feedMeta').textContent=`${remaining.length} bài`;if(!current.length){feed.append(el('p','empty','Đây là tất cả bài viết đang có.'))}else current.forEach(a=>feed.append(story(a,'list')));items.slice(0,5).forEach((a,i)=>{const li=el('li');li.append(el('b','',String(i+1)));const btn=el('button','',a.tieuDe);btn.type='button';btn.onclick=()=>openArticle(a);li.append(btn);tops.append(li)});if(max>1){for(let n=1;n<=max;n++){const b=el('button',n===page?'active':'',n);b.type='button';b.onclick=()=>{page=n;render();document.querySelector('.feed-label').scrollIntoView({behavior:'smooth'})};pages.append(b)}}}
+function openArticle(item,push=true){$('listing').classList.add('hidden');const target=$('article');target.classList.remove('hidden');target.replaceChildren();const back=el('button','back','← Trở về danh sách bài viết');back.type='button';back.onclick=()=>backList();target.append(back);target.append(el('div','article-category',item.chuyenMuc||'Bài viết'));target.append(el('h1','article-title',item.tieuDe||''));date(target,item);target.append(el('p','article-intro',item.tomTat||''));if(safeLink(item.anhDaiDien)){const im=photo(item.anhDaiDien);im.className='article-body';target.append(im)}target.append(el('div','article-text',item.noiDung||''));let imgs=Array.isArray(item.anhNoiDung)?item.anhNoiDung:[];const caps=String(item.chuThichAnh||'').split(/\r?\n/);const gallery=el('div','article-body');imgs.forEach((url,i)=>{if(!safeLink(url))return;const fig=el('figure');const pic=photo(url);fig.append(pic);if(caps[i])fig.append(el('figcaption','',caps[i]));gallery.append(fig)});target.append(gallery);const file=safeLink(item.linkTep);if(file){const a=el('a','attachment','↗ Xem tài liệu đính kèm');a.href=file;a.target='_blank';a.rel='noopener noreferrer';target.append(a)}if(push)history.pushState({article:item.id},'',`#bai-viet-${encodeURIComponent(item.id)}`);window.scrollTo(0,0)}
+function backList(push=true){$('article').classList.add('hidden');$('listing').classList.remove('hidden');if(push)history.pushState({},'','/vanban/');window.scrollTo(0,0)}
+function route(){const hash=location.hash.match(/^#bai-viet-(.*)$/);if(hash){const id=decodeURIComponent(hash[1]);const item=all.find(a=>a.id===id);if(item){openArticle(item,false);return}}backList(false)}
+$('q').addEventListener('input',()=>{page=1;render()});window.addEventListener('popstate',route);window.addEventListener('hashchange',route);
+async function start(){try{const response=await fetch(API,{redirect:'follow',cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();if(data.success!==true||!Array.isArray(data.articles))throw Error(data.error||'API trả về dữ liệu không hợp lệ');all=data.articles.filter(a=>a&&a.id&&a.tieuDe);$('loading').classList.add('hidden');render();route()}catch(err){$('loading').classList.add('hidden');$('error').classList.remove('hidden');$('error').textContent='Chưa thể tải bài viết từ Google Apps Script. Vui lòng kiểm tra quyền API và kết nối trình duyệt. Chi tiết: '+err.message;console.error('Thư viện văn bản:',err)}}
+start();
 </script>
-
 </body>
 </html>
